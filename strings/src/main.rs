@@ -30,4 +30,25 @@ fn main() {
     // Displaying the length and capacity of the string
     println!("Length of s1: {}", s1.len());
     println!("Capacity of s1: {}", s1.capacity());
+
+    // example of ownership
+    // In Rust, ownership is a key concept that ensures memory safety.
+    // Here, we demonstrate ownership by transferring ownership of a string.
+    // When `a` is assigned to `b`, `b` takes ownership of the string,
+    // and `a` can no longer be used to access it.
+    // But for intergers, ownership is not transferred.
+    // Instead, a copy is made.
+    let a = String::from("Hello, world!");
+    let b = a;
+    println!("{}", b);
+
+    let a = String::from("Hello");
+    let b = a.clone(); // Now both have the same value
+
+    println!("a = {}", a);  // Works
+    println!("b = {}", b);  // Works
+
+    let x = String::from("hello");
+    let y = &x; // y is a reference to x
+    println!("x = {}, y = {}", x, y); // Both can be used
 }
